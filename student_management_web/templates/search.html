@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="form-card">
+    <h2><i class="fa-solid fa-magnifying-glass"></i> Search Student</h2>
+    <form method="POST" action="{{ url_for('search_student') }}" class="search-form">
+        <div class="form-group">
+            <input type="text" name="roll" placeholder="Enter Roll Number..." required autocomplete="off"
+                style="text-align: center; font-size: 1.2rem;">
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="submit" class="btn">Search Database</button>
+        </div>
+    </form>
+</div>
+
+{% if student %}
+<div class="result-card"
+    style="text-align: center; max-width: 400px; margin: 0 auto; border-left: 5px solid var(--secondary-color);">
+    <h3 style="color: var(--secondary-color);"><i class="fa-solid fa-check-circle"></i> Student Found</h3>
+    <div style="text-align: left; margin-top: 20px;">
+        <p><strong>Roll No:</strong> {{ student['roll'] }}</p>
+        <p><strong>Name:</strong> {{ student['name'] }}</p>
+        <p><strong>Course:</strong> {{ student['course'] }}</p>
+    </div>
+</div>
+{% elif message %}
+<div class="result-card"
+    style="text-align: center; max-width: 400px; margin: 0 auto; border-left: 5px solid var(--accent-color);">
+    <h3 style="color: var(--accent-color);"><i class="fa-solid fa-times-circle"></i> Not Found</h3>
+    <p>{{ message }}</p>
+</div>
+{% endif %}
+{% endblock %}

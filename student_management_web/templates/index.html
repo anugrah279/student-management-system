@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="welcome-box">
+    <h2>Welcome to Student Portal</h2>
+    <p>Efficiently manage your student records with our modern, secure, and fast platform.</p>
+    <div class="actions">
+        <a href="{{ url_for('add_student') }}" class="btn"><i class="fa-solid fa-plus"></i> Add New Student</a>
+        <a href="{{ url_for('view_students') }}" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> View All
+            Records</a>
+    </div>
+</div>
+
+<div class="glass-card">
+    <h3><i class="fa-solid fa-rocket"></i> Quick Stats</h3>
+    <div style="display: flex; justify-content: space-around; text-align: center; margin-top: 20px;">
+        <div>
+            <h4 style="font-size: 2rem; margin: 0; color: var(--primary-color);">Fast</h4>
+            <p style="color: var(--text-muted);">Operation</p>
+        </div>
+        <div>
+            <h4 style="font-size: 2rem; margin: 0; color: var(--secondary-color);">Secure</h4>
+            <p style="color: var(--text-muted);">Database</p>
+        </div>
+        <div>
+            <h4 style="font-size: 2rem; margin: 0; color: var(--accent-color);">Simple</h4>
+            <p style="color: var(--text-muted);">Interface</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
